@@ -5,9 +5,11 @@ import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'gender.dart';
 import 'constance.dart';
+import 'doplicate_card.dart';
 
 int Height = 174;
 int Weight = 69;
+int Age = 19;
 
 class InputPage extends StatefulWidget {
   @override
@@ -113,56 +115,44 @@ class _InputPageState extends State<InputPage> {
                 children: <Widget>[
                   Expanded(
                     child: ReusableWidget(
-                      //======================================================
                     colour: kActiveCardColour,
-                      cardChild: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text('WEIGHT', style: kLabelTextStyle,),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.baseline,
-                            textBaseline: TextBaseline.alphabetic,
-                            children: <Widget>[
-                              Text(
-                                Weight.toString(), style: kCardsTextStyle,
-                              ),
-                              Text(
-                                'kg', style: kLabelTextStyle,
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              RoundBTN(
-                                icon: FontAwesomeIcons.minus,
-                                onClick: (){
-                                setState(() {
-                                  Weight--;
-                                });
-                              },
-                              ),
-                              SizedBox(
-                                width: 16.0,
-                              ),
-                              RoundBTN(
-                                icon: FontAwesomeIcons.plus,
-                                onClick: (){
-                                  setState(() {
-                                    Weight++;
-                                  });
-                                },),
-
-                            ],
-                          ),
-                        ],
+                      cardChild: DoplicatedCard(
+                        onPressLeft: (){
+                          setState(() {
+                            Weight--;
+                          });
+                        },
+                        onPressRight: (){
+                          setState(() {
+                            Weight++;
+                          });
+                        },
+                        cardLabel: 'WEIGHT',
+                        cardSuffix: 'kg',
+                        cardStartingText: Weight.toString(),
                       ),
                     ),
                   ),
                   Expanded(
-                    child: ReusableWidget(
-                      colour: kActiveCardColour,
+                    //======================================================
+                  child: ReusableWidget(
+                    colour: kActiveCardColour,
+                    cardChild: DoplicatedCard(
+                      onPressLeft: (){
+                        setState(() {
+                          if(Age > 1)
+                            Age--;
+                        });
+                      },
+                      onPressRight: (){
+                        setState(() {
+                          Age++;
+                        });
+                      },
+                      cardLabel: 'AGE',
+                      cardSuffix: 'years',
+                      cardStartingText: Age.toString(),
+                    ),
                     ),
                   ),
                 ],
@@ -179,23 +169,8 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class RoundBTN extends StatelessWidget {
-  final IconData icon;
-  final Function onClick;
-  const RoundBTN({@required this.icon, this.onClick});
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      child: Icon(icon, color: kTextCardsColor,),
-      onPressed: onClick,
-      shape: CircleBorder(),
-      constraints: BoxConstraints.tightFor(
-        width: 50.0,
-        height: 50.0,
-      ),
-      fillColor: kInActiveCardColour,
-      elevation: 8.0,
-    );
-  }
-}
+
+
+
+
 
