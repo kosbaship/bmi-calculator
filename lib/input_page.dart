@@ -6,7 +6,7 @@ import 'reusable_card.dart';
 import 'gender.dart';
 import 'constance.dart';
 import 'doplicate_card.dart';
-
+import 'result_page.dart';
 int Height = 174;
 int Weight = 69;
 int Age = 19;
@@ -134,7 +134,6 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ),
                   Expanded(
-                    //======================================================
                   child: ReusableWidget(
                     colour: kActiveCardColour,
                     cardChild: DoplicatedCard(
@@ -158,11 +157,27 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            Container(
-              width: double.infinity,
-              color: kBottomContainerColor,
-              height: kBottomContainerHeight,
-              margin: EdgeInsets.only(top: 16.0),
+
+            //======================================================
+
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => ResultPage(),
+                ));
+              },
+              child: Container(
+                child: Text(
+                  'Calculate',
+                  style: kCardsTextStyle,
+                  textAlign: TextAlign.center,
+                ),
+                width: double.infinity,
+                color: kBottomContainerColor,
+                height: kBottomContainerHeight,
+                margin: EdgeInsets.only(top: 16.0),
+                padding: EdgeInsets.only(top: 16.0),
+              ),
             )
           ],
         ));
