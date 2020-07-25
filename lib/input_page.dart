@@ -7,6 +7,7 @@ import 'gender.dart';
 import 'constance.dart';
 import 'doplicate_card.dart';
 import 'result_page.dart';
+import 'bottom_button.dart';
 int Height = 174;
 int Weight = 69;
 int Age = 19;
@@ -33,7 +34,7 @@ class _InputPageState extends State<InputPage> {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: ReusableWidget(
+                    child: ReusableCard(
                       onClick: (){
                         setState(() {
                           SelectedGender = Gender.Male;
@@ -47,7 +48,7 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ),
                   Expanded(
-                    child: ReusableWidget(
+                    child: ReusableCard(
                       onClick: (){
                         setState(() {
                           SelectedGender = Gender.Female;
@@ -65,7 +66,7 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
             Expanded(
-              child: ReusableWidget(
+              child: ReusableCard(
                 cardChild: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -114,7 +115,7 @@ class _InputPageState extends State<InputPage> {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: ReusableWidget(
+                    child: ReusableCard(
                     colour: kActiveCardColour,
                       cardChild: DoplicatedCard(
                         onPressLeft: (){
@@ -134,7 +135,7 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ),
                   Expanded(
-                  child: ReusableWidget(
+                  child: ReusableCard(
                     colour: kActiveCardColour,
                     cardChild: DoplicatedCard(
                       onPressLeft: (){
@@ -158,31 +159,20 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
 
-            //======================================================
-
-            GestureDetector(
+            BottomButton(
+              btnTitle: 'CALCULATE',
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) => ResultPage(),
                 ));
               },
-              child: Container(
-                child: Text(
-                  'Calculate',
-                  style: kCardsTextStyle,
-                  textAlign: TextAlign.center,
-                ),
-                width: double.infinity,
-                color: kBottomContainerColor,
-                height: kBottomContainerHeight,
-                margin: EdgeInsets.only(top: 16.0),
-                padding: EdgeInsets.only(top: 16.0),
-              ),
             )
           ],
         ));
   }
 }
+
+
 
 
 

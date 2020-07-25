@@ -19,3 +19,29 @@ const kCardsTextStyle = TextStyle(
   letterSpacing: 2.0,
 //  fontFamily: '.SF UI Display',
 );
+const kButtomAndDescriptionTextStyle = TextStyle(
+  fontSize: 25.0,
+  fontWeight: FontWeight.bold,
+  color: kTextCardsColor,
+  letterSpacing: 2.0,
+);
+const kYourResultTextStyle = TextStyle(
+  fontSize: 65.0,
+  fontWeight: FontWeight.bold,
+  color: kTextCardsColor,
+
+);
+
+const kBMITextStyle = TextStyle(
+  fontSize: 100.0,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+  letterSpacing: 2.0,
+);
+
+const kResultTextStyle = TextStyle(
+  fontSize: 23.0,
+  fontWeight: FontWeight.bold,
+  color:  Color(0xFF24d876),
+  letterSpacing: 2.0,
+);
