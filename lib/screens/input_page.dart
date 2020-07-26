@@ -1,16 +1,17 @@
+import 'package:bmi_calculator/calculator_brain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'icon_content.dart';
-import 'reusable_card.dart';
-import 'gender.dart';
-import 'constance.dart';
-import 'doplicate_card.dart';
+import '../components/icon_content.dart';
+import '../components/reusable_card.dart';
+import '../components/gender.dart';
+import '../constance.dart';
+import '../components/doplicate_card.dart';
 import 'result_page.dart';
-import 'bottom_button.dart';
-int Height = 174;
-int Weight = 69;
-int Age = 19;
+import '../components/bottom_button.dart';
+int mHeight = 187;
+int mWeight = 97;
+int mAge = 24;
 
 class InputPage extends StatefulWidget {
   @override
@@ -79,7 +80,7 @@ class _InputPageState extends State<InputPage> {
                       textBaseline: TextBaseline.alphabetic,
                       children: <Widget>[
                         Text(
-                          Height.toString(), style: kCardsTextStyle,
+                          mHeight.toString(), style: kCardsTextStyle,
                         ),
                         Text(
                           'cm', style: kLabelTextStyle,
@@ -96,12 +97,12 @@ class _InputPageState extends State<InputPage> {
                         overlayColor: Color(0x49ff0067),
                       ),
                       child: Slider(
-                        value: Height.toDouble(),
+                        value: mHeight.toDouble(),
                         min: 120.0,
                         max: 220.0,
                         onChanged: (double value) {
                           setState(() {
-                            Height = value.round();
+                            mHeight = value.round();
                           });
                         },
                       ),
@@ -120,17 +121,17 @@ class _InputPageState extends State<InputPage> {
                       cardChild: DoplicatedCard(
                         onPressLeft: (){
                           setState(() {
-                            Weight--;
+                            mWeight--;
                           });
                         },
                         onPressRight: (){
                           setState(() {
-                            Weight++;
+                            mWeight++;
                           });
                         },
                         cardLabel: 'WEIGHT',
                         cardSuffix: 'kg',
-                        cardStartingText: Weight.toString(),
+                        cardStartingText: mWeight.toString(),
                       ),
                     ),
                   ),
@@ -140,18 +141,18 @@ class _InputPageState extends State<InputPage> {
                     cardChild: DoplicatedCard(
                       onPressLeft: (){
                         setState(() {
-                          if(Age > 1)
-                            Age--;
+                          if(mAge > 1)
+                            mAge--;
                         });
                       },
                       onPressRight: (){
                         setState(() {
-                          Age++;
+                          mAge++;
                         });
                       },
                       cardLabel: 'AGE',
                       cardSuffix: 'years',
-                      cardStartingText: Age.toString(),
+                      cardStartingText: mAge.toString(),
                     ),
                     ),
                   ),
@@ -162,8 +163,18 @@ class _InputPageState extends State<InputPage> {
             BottomButton(
               btnTitle: 'CALCULATE',
               onTap: (){
+
+                CalculatorBrain calc = CalculatorBrain(
+                    height: mHeight,
+                    weight: mWeight
+                );
+
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => ResultPage(),
+                  builder: (context) => ResultPage(
+                    bmiResult: calc.calculateBMI(),
+                    resultText: calc.getResult(),
+                    interpretation: calc.getInterpretation(),
+                  ),
                 ));
               },
             )

@@ -17,14 +17,15 @@ const kCardsTextStyle = TextStyle(
   fontWeight: FontWeight.w900,
   color: kTextCardsColor,
   letterSpacing: 2.0,
-//  fontFamily: '.SF UI Display',
 );
+
 const kButtomAndDescriptionTextStyle = TextStyle(
   fontSize: 25.0,
   fontWeight: FontWeight.bold,
   color: kTextCardsColor,
   letterSpacing: 2.0,
 );
+
 const kYourResultTextStyle = TextStyle(
   fontSize: 65.0,
   fontWeight: FontWeight.bold,

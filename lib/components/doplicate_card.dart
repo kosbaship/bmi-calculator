@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'constance.dart';
+import '../constance.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'custom_btn.dart';
-import 'input_page.dart';
+import '../screens/input_page.dart';
 class DoplicatedCard extends StatelessWidget {
 
 

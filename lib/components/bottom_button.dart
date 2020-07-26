@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'constance.dart';
-import 'result_page.dart';
+import '../constance.dart';
 class BottomButton extends StatelessWidget {
 
   final String btnTitle;

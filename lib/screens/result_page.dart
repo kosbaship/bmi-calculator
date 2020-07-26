@@ -1,10 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'constance.dart';
-import 'reusable_card.dart';
-import 'bottom_button.dart';
+import '../constance.dart';
+import '../components/reusable_card.dart';
+import '../components/bottom_button.dart';
 import 'input_page.dart';
 class ResultPage extends StatelessWidget {
+
+  const ResultPage({@required this.bmiResult,@required this.resultText,@required this.interpretation});
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,13 +39,13 @@ class ResultPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Text(
-                      'Normal',
+                      resultText.toUpperCase(),
                       style: kResultTextStyle,
                     ),Text(
-                      '18.3',
+                      bmiResult,
                       style: kBMITextStyle,
                     ),Text(
-                      'Your BMI result is quite low, you should eat more!',
+                      interpretation,
                       style: kButtomAndDescriptionTextStyle,
                       textAlign: TextAlign.center,
                     ),
@@ -59,8 +65,3 @@ class ResultPage extends StatelessWidget {
     );
   }
 }
-
-
-//child: Text('RESULT',
-//style: kCardsTextStyle,
-//),

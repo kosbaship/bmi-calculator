@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'constance.dart';
+import '../constance.dart';
 class RoundBTN extends StatelessWidget {
   final IconData icon;
   final Function onClick;
